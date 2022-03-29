@@ -120,6 +120,11 @@ class MsgText(Enum):
             {config_file}
         """
 
+    ConfigCantBeParsed = """
+        Could not parse your config file at:
+            {config_file}
+        """
+
     # --- Password --- #
     PasswordMaxTriesExceeded = """
         Too many attempts with wrong password

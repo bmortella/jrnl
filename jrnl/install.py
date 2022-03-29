@@ -74,6 +74,14 @@ def load_or_install_jrnl(alt_config_path):
     if os.path.exists(config_path):
         logging.debug("Reading configuration from file %s", config_path)
         config = load_config(config_path)
+        if config is None:
+            raise JrnlException(
+                Message(
+                    MsgText.ConfigCantBeParsed,
+                    MsgType.ERROR,
+                    {"config_file": config_path},
+                )
+            )
 
         if is_old_version(config_path):
             from jrnl import upgrade
